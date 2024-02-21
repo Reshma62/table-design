@@ -15,7 +15,7 @@ function App() {
 
   return (
     <>
-      <section className="bg-slate-200 flex justify-center items-center h-screen font-poppins  ">
+      <section className="bg-slate-200 overflow-hidden flex justify-center items-center h-screen font-poppins  ">
         <div className="bg-white container mx-auto shadow-lg  py-7 w-full">
           <div className="flex justify-between mb-8 px-8 text-green-950">
             <h2 className="text-2xl font-semibold capitalize">Table header</h2>
@@ -28,7 +28,7 @@ function App() {
               {/* add or remove field here */}
               <div>
                 <div
-                  className={`bg-white shadow-2xl px-6 py-4 rounded-xl w-96 absolute right-0 top-full  rotate-0 transition-all duration-300  ${
+                  className={`bg-white shadow-2xl px-6 py-4 rounded-xl w-44 lg:w-96 absolute right-0 top-full  rotate-0 transition-all duration-300  ${
                     open ? "visible scale-1" : "invisible scale-0"
                   } `}
                 >
@@ -149,34 +149,36 @@ function App() {
             </div>
           </div>
           {/* table Wrapper */}
-          <div>
-            {/* table header */}
-            <div
-              className={`grid grid-cols-8 items-center place-content-between  border-b border-solid border-gray-400 px-6 pb-3 capitalize font-medium text-gray-900 text-lg`}
-            >
-              {showTitle && <p className=" col-span-2 ">Title</p>}
-              {showCategories && <p className="  ">Categories</p>}
-              {showPrice && <p className="  ">Price</p>}
-              {showDate && <p className="   ">Date</p>}
-              {showAuthor && <p className="   ">Author</p>}
-              {showStatus && <p className="   ">Status</p>}
-              {showActions && <p className="   ">Action</p>}
-            </div>
-            {/* table Body */}
-            <div>
-              {data.map((item, index) => (
-                <TableBody
-                  item={item}
-                  key={index}
-                  showTitle={showTitle}
-                  showActions={showActions}
-                  showAuthor={showAuthor}
-                  showCategories={showCategories}
-                  showDate={showDate}
-                  showPrice={showPrice}
-                  showStatus={showStatus}
-                />
-              ))}
+          <div className=" overflow-x-auto">
+            <div className="max-lg:w-[1000px]">
+              {/* table header */}
+              <div
+                className={`grid grid-cols-8 items-center place-content-between  border-b border-solid border-gray-400 px-6 pb-3 capitalize font-medium text-gray-900 text-lg gap-5`}
+              >
+                {showTitle && <p className=" col-span-2 ">Title</p>}
+                {showCategories && <p className="  ">Categories</p>}
+                {showPrice && <p className="  ">Price</p>}
+                {showDate && <p className="   ">Date</p>}
+                {showAuthor && <p className="   ">Author</p>}
+                {showStatus && <p className="   ">Status</p>}
+                {showActions && <p className="   ">Action</p>}
+              </div>
+              {/* table Body */}
+              <div>
+                {data.map((item, index) => (
+                  <TableBody
+                    item={item}
+                    key={index}
+                    showTitle={showTitle}
+                    showActions={showActions}
+                    showAuthor={showAuthor}
+                    showCategories={showCategories}
+                    showDate={showDate}
+                    showPrice={showPrice}
+                    showStatus={showStatus}
+                  />
+                ))}
+              </div>{" "}
             </div>
           </div>
           {/* Table end here */}

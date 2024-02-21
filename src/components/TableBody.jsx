@@ -14,7 +14,7 @@ const TableBody = ({
 
   return (
     <div
-      className={`grid grid-cols-8 place-content-between   border-b border-solid border-gray-400 px-6 pb-3 capitalize font-medium text-gray-900 text-sm py-3 items-center`}
+      className={`grid grid-cols-8 gap-5 place-content-between   border-b border-solid border-gray-400 px-6 pb-3 capitalize font-medium text-gray-900 text-sm py-3 items-center`}
     >
       {showTitle && (
         <div className=" col-span-2 ">
